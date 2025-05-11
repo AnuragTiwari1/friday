@@ -108,18 +108,31 @@ const typography = cva(
 );
 
 // Surface/Card variant
-const surface = cva("w-20 h-12 rounded-lg mb-1", {
+const surface = cva("w-24 h-12 rounded-lg mb-1 border", {
   variants: {
     type: {
-      surfaceDefault: "bg-white",
-      surfaceSubtle: "bg-neutral-50",
-      card: "bg-neutral-100",
-      cardElevated: "bg-white shadow",
-      border: "border border-neutral-200",
+      background: "bg-[var(--background)]",
+      foreground: "bg-[var(--foreground)]",
+      card: "bg-[var(--card)]",
+      cardForeground: "bg-[var(--card-foreground)]",
+      popover: "bg-[var(--popover)]",
+      popoverForeground: "bg-[var(--popover-foreground)]",
+      primary: "bg-[var(--primary)]",
+      primaryForeground: "bg-[var(--primary-foreground)]",
+      secondary: "bg-[var(--secondary)]",
+      secondaryForeground: "bg-[var(--secondary-foreground)]",
+      muted: "bg-[var(--muted)]",
+      mutedForeground: "bg-[var(--muted-foreground)]",
+      accent: "bg-[var(--accent)]",
+      accentForeground: "bg-[var(--accent-foreground)]",
+      destructive: "bg-[var(--destructive)]",
+      border: "bg-[var(--border)]",
+      input: "bg-[var(--input)]",
+      ring: "bg-[var(--ring)]",
     },
   },
   defaultVariants: {
-    type: "surfaceDefault",
+    type: "background",
   },
 });
 
@@ -162,11 +175,24 @@ export default function Theme() {
     { key: "mono", label: "Mono" },
   ];
   const surfaceTypes = [
-    { key: "surfaceDefault", label: "Surface Default" },
-    { key: "surfaceSubtle", label: "Surface Subtle" },
-    { key: "card", label: "Card" },
-    { key: "cardElevated", label: "Card Elevated" },
-    { key: "border", label: "Border" },
+    { key: "background", label: "Background", varName: "--background" },
+    { key: "foreground", label: "Foreground", varName: "--foreground" },
+    { key: "card", label: "Card", varName: "--card" },
+    { key: "cardForeground", label: "Card Foreground", varName: "--card-foreground" },
+    { key: "popover", label: "Popover", varName: "--popover" },
+    { key: "popoverForeground", label: "Popover Foreground", varName: "--popover-foreground" },
+    { key: "primary", label: "Primary", varName: "--primary" },
+    { key: "primaryForeground", label: "Primary Foreground", varName: "--primary-foreground" },
+    { key: "secondary", label: "Secondary", varName: "--secondary" },
+    { key: "secondaryForeground", label: "Secondary Foreground", varName: "--secondary-foreground" },
+    { key: "muted", label: "Muted", varName: "--muted" },
+    { key: "mutedForeground", label: "Muted Foreground", varName: "--muted-foreground" },
+    { key: "accent", label: "Accent", varName: "--accent" },
+    { key: "accentForeground", label: "Accent Foreground", varName: "--accent-foreground" },
+    { key: "destructive", label: "Destructive", varName: "--destructive" },
+    { key: "border", label: "Border", varName: "--border" },
+    { key: "input", label: "Input", varName: "--input" },
+    { key: "ring", label: "Ring", varName: "--ring" },
   ];
   const spacingTypes = [
     { key: "spacing2", label: "Spacing 2", value: 2 },
@@ -248,14 +274,14 @@ export default function Theme() {
         {/* Surface & Card */}
         <Card className="p-6">
           <h2 className="text-2xl font-semibold mb-2">Surface & Card</h2>
-          <p className="mb-4 text-neutral-700">Surface and card tokens for backgrounds and containers.</p>
+          <p className="mb-4 text-neutral-700">Surface and card tokens for backgrounds and containers, mapped to root variables.</p>
           <Separator className="mb-4" />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {surfaceTypes.map((surf) => (
               <div key={surf.key} className="flex flex-col items-center">
                 <div className={twMerge(surface({ type: surf.key }))} />
                 <div className="font-mono text-xs text-gray-600">{surf.label}</div>
-                {/* <div className="font-mono text-xs text-gray-400">{surface.variants.type[surf.key]}</div> */}
+                <div className="font-mono text-[10px] text-gray-400">{surf.varName}</div>
               </div>
             ))}
           </div>
