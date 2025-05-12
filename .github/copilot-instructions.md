@@ -5,6 +5,7 @@ Follow these instructions to ensure all UI components and layouts are consistent
 ## 1. Color Palette
 
 - Use only the color variables defined in `globals.css` (e.g., `--color-primary-500`, `--color-secondary-500`, `--color-accent-500`, `--color-neutral-50`, etc.).
+- instead of relying of variables use tailwind classes eg: use border-card instead of border-[var(--color-card)]
 - Reference the color roles (primary, secondary,muted, popover, card, border, input, ring accent, neutral, foreground, background, primary-foreground, secondary-foreground, muted-foreground) for backgrounds, text, borders, and UI states.
 
 ## 2. Typography
@@ -28,15 +29,17 @@ Follow these instructions to ensure all UI components and layouts are consistent
 
 ## 4. Spacing
 
-- Spacing scale (use for margin and padding, match the demo bars):
+- Spacing scale:
   - Spacing 2: 2px
   - Spacing 4: 4px
+  - Spacing 6: 6px
   - Spacing 8: 8px
   - Spacing 12: 12px
   - Spacing 16: 16px
   - Spacing 20: 20px
   - Spacing 24: 24px
   - Spacing 32: 32px
+- use only listed spacing values for vertical and horizontal spacing for consistency. eg: mb-6, p-3 is disallowed.
 
 ## 5. General Rules
 
