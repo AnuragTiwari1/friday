@@ -1,6 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Switch } from "@/components/ui/switch";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   Search,
   ChevronLeft,
@@ -13,6 +16,9 @@ import {
 } from "lucide-react";
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const [detailsToggled, setDetailsToggled] = useState(false);
+
   return (
     <main
       className="flex flex-col items-center bg-background min-h-screen font-sans p-0"
@@ -58,12 +64,22 @@ export default function HomeScreen() {
           <div className="text-[12px] font-normal mb-4 font-sans opacity-85">
             Task manager ui kit
           </div>
-          <Button
-            variant="secondary"
-            className="rounded-full px-4 py-1 text-[14px] font-medium bg-secondary text-secondary-foreground"
-          >
-            Details
-          </Button>
+          <div className="flex items-center gap-4">
+            <Switch
+              checked={detailsToggled}
+              onCheckedChange={(checked) => {
+                setDetailsToggled(checked);
+                if (checked) {
+                  router.push("/details");
+                }
+              }}
+              label="Details"
+              thumbClassName="size-9 data-[state=checked]:rotate-180"
+              className="data-[state=checked]:bg-secondary data-[state=unchecked]:bg-background/50 h-9"
+              labelClassName="text-[14px] font-medium data-[state=checked]:text-secondary"
+              id="details-toggle"
+            />
+          </div>
         </div>
         <div className="flex flex-col items-center gap-2 justify-end">
           <Button
