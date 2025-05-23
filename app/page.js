@@ -12,7 +12,8 @@ import {
   Circle,
   Home,
   MoreHorizontal,
-  Play
+  Play,
+  CheckCircle
 } from "lucide-react";
 
 export default function HomeScreen() {
@@ -92,101 +93,113 @@ export default function HomeScreen() {
         </div>
       </section>
 
-      {/* All Tasks */}
       <section className="w-full px-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-[18px] font-semibold tracking-tight font-sans text-foreground">
-            All Tasks
+            Today's Tasks
           </h2>
-          <Button
-            variant="link"
-            className="text-[14px] font-medium text-primary"
-          >
-            See all
-          </Button>
+          <span className="text-[12px] text-muted-foreground font-sans">
+            Total: 09:38:03
+          </span>
         </div>
-        {/* Task Cards */}
-        <div className="flex flex-col gap-4">
-          {/* Task Card 1 */}
-          <div
-            className="rounded-2xl p-4 flex flex-row justify-between items-center bg-card text-foreground"
-          >
-            <div>
-              <div className="text-[16px] font-semibold font-sans">
-                3d Making Project
-              </div>
-              <div className="text-[14px] font-normal mb-2 font-sans text-muted-foreground">
-                Team Project Working On Figma
-              </div>
-              <div className="flex items-center gap-2">
-                {/* Avatars */}
-                <div className="flex -space-x-2">
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user1.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user2.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user3.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user4.png" />
-                  </Avatar>
+        <div className="flex flex-col gap-2">
+          {/* Task 1 */}
+          <div className="group py-4 px-4 hover:bg-muted/50 rounded-lg transition-colors">
+            <div className="flex items-center gap-4 mb-2">
+              <span className="w-2 h-2 rounded-full bg-pink-500" />
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[16px] font-semibold text-foreground">Reading books</span>
+                  <span className="text-[14px] font-medium text-primary">02:24:50</span>
                 </div>
-                <span className="text-[12px] text-muted-foreground ml-2 font-sans">
-                  10 participants
-                </span>
+                <div className="flex items-center gap-4 mt-1">
+                  <span className="text-[12px] text-muted-foreground">2 subtasks</span>
+                  <div className="flex -space-x-2">
+                    <Avatar className="h-4 w-4 border border-background">
+                      <AvatarImage src="/user1.jpg" />
+                    </Avatar>
+                    <Avatar className="h-4 w-4 border border-background">
+                      <AvatarImage src="/user2.jpg" />
+                    </Avatar>
+                  </div>
+                </div>
               </div>
-            </div>
-            {/* Progress */}
-            <div className="flex flex-col items-center">
-              <div
-                className="rounded-full border-2 border-primary w-14 h-14 flex items-center justify-center bg-card"
+              <Button
+                variant="ghost"
+                size="sm"
+                className="opacity-0 group-hover:opacity-100 h-8 rounded-full px-2"
               >
-                <span className="text-[16px] font-semibold text-primary">55%</span>
+                <Play className="h-4 w-4 mr-2" />
+                <span className="text-[14px]">Resume</span>
+              </Button>
+            </div>
+            <div className="ml-6 space-y-2">
+              <div className="flex items-center justify-between text-[14px]">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary" />
+                  <span className="text-muted-foreground">Steve Jobs Biography</span>
+                </div>
+                <span className="text-[12px] tabular-nums">01:24:30</span>
+              </div>
+              <div className="flex items-center justify-between text-[14px]">
+                <div className="flex items-center gap-2">
+                  <Circle className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">Design Patterns</span>
+                </div>
+                <span className="text-[12px] tabular-nums">01:00:20</span>
               </div>
             </div>
           </div>
-          {/* Task Card 2 */}
-          <div
-            className="rounded-2xl p-4 flex flex-row justify-between items-center bg-card text-foreground"
-          >
-            <div>
-              <div className="text-[16px] font-semibold font-sans">
-                Illustration
-              </div>
-              <div className="text-[14px] font-normal mb-2 font-sans text-muted-foreground">
-                Team Project Working On Figma
-              </div>
-              <div className="flex items-center gap-2">
-                {/* Avatars */}
-                <div className="flex -space-x-2">
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user1.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user2.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user3.png" />
-                  </Avatar>
-                  <Avatar className="w-6 h-6 border-2 border-card">
-                    <AvatarImage src="/user4.png" />
-                  </Avatar>
+
+          {/* Task 2 */}
+          <div className="group py-4 px-4 hover:bg-muted/50 rounded-lg transition-colors">
+            <div className="flex items-center gap-4">
+              <span className="w-2 h-2 rounded-full bg-purple-500" />
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[16px] font-semibold text-foreground">Work - office</span>
+                  <span className="text-[14px] font-medium text-primary">06:14:24</span>
                 </div>
-                <span className="text-[12px] text-muted-foreground ml-2 font-sans">
-                  10 participants
-                </span>
+                <div className="flex items-center gap-4 mt-1">
+                  <span className="text-[12px] text-muted-foreground">In progress</span>
+                  <div className="h-1 flex-1 bg-muted rounded-full">
+                    <div className="h-full w-[65%] bg-primary rounded-full" />
+                  </div>
+                </div>
               </div>
-            </div>
-            {/* Progress */}
-            <div className="flex flex-col items-center">
-              <div
-                className="rounded-full border-2 border-primary w-14 h-14 flex items-center justify-center bg-card"
+              <Button
+                variant="ghost"
+                size="sm"
+                className="opacity-0 group-hover:opacity-100 h-8 rounded-full px-2"
               >
-                <span className="text-[16px] font-semibold text-primary">17%</span>
+                <Play className="h-4 w-4 mr-2" />
+                <span className="text-[14px]">Resume</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Task 3 */}
+          <div className="group py-4 px-4 hover:bg-muted/50 rounded-lg transition-colors">
+            <div className="flex items-center gap-4">
+              <span className="w-2 h-2 rounded-full bg-violet-500" />
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[16px] font-semibold text-foreground">Work</span>
+                  <span className="text-[14px] font-medium text-primary">00:58:49</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <Circle className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-[14px] text-muted-foreground">Daily meeting</span>
+                </div>
               </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="opacity-0 group-hover:opacity-100 h-8 rounded-full px-2"
+              >
+                <Play className="h-4 w-4 mr-2" />
+                <span className="text-[14px]">Start</span>
+              </Button>
             </div>
           </div>
         </div>
